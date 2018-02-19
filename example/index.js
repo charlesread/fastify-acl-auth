@@ -2,7 +2,7 @@
 
 const fastify = require('fastify')()
 
-const fastifyAclAuth = require('../plugin')({hierarchy: ['user', 'admin', 'superuser']})
+const fastifyAclAuth = require('fastify-acl-auth')({hierarchy: ['user', 'admin', 'superuser']})
 
 const cread = {
   id: 970,
