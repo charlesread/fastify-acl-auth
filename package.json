@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tap 'test/**/*.test.js'"
+    "test": "tap 'test/**/*.test.js' --cov",
+    "pretty": "npm test -- --cov --coverage-report=lcov"
   },
   "author": "",
   "license": "ISC",
