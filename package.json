@@ -1,17 +1,15 @@
 {
   "name": "fastify-acl-auth",
   "version": "0.0.1",
-  "description": "",
+  "description": "ACL-like authorization for Fastify apps",
   "main": "index.js",
   "scripts": {
     "test": "tap 'test/**/*.test.js' --cov",
     "pretty": "npm test -- --cov --coverage-report=lcov"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Charles Read",
+  "license": "MIT",
   "dependencies": {
-    "debug": "^3.1.0",
-    "fastify": "^1.0.0-rc.2",
     "fastify-plugin": "^0.2.2",
     "fastify-url-data": "^1.1.1",
     "lodash": "^4.17.5",
@@ -19,6 +17,15 @@
     "type-detect": "^4.0.8"
   },
   "devDependencies": {
+    "fastify": "^1.0.0-rc.2",
     "request": "^2.83.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlesread/fastify-acl-auth",
+  },
+  "bugs": {
+    "url": "https://github.com/charlesread/fastify-acl-auth/issues"
+  },
+  "keywords": ["fastify", "acl", "authorization"]
 }
