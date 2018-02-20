@@ -38,7 +38,9 @@ const hookFactory = function (fastify, options) {
 
 const plugin = async function (fastify, options) {
   fastify.register(require('fastify-url-data'))
-  const hook = hookFactory(fastify, Object.assign({}, instanceOptions, options))
+  const pluginOptions = Object.assign({}, instanceOptions, options)
+  plugin.options = pluginOptions
+  const hook = hookFactory(fastify, pluginOptions)
   fastify.addHook('preHandler', hook)
 }
 

@@ -37,30 +37,31 @@ test(function (t) {
   fastifyInstance.decorateRequest('session', {credentials: {roles: ['user']}})
   fastifyInstance.register(function (f, o, n) {
     f.register(plugin({allowedRoles: ['user']}))
-    f.get('/user', async function (req, reply) {
+    f.get('/user', async function () {
       return '/user'
     })
     n()
   })
   fastifyInstance.register(function (f, o, n) {
     f.register(plugin({allowedRoles: ['admin']}))
-    f.get('/admin', async function (req, reply) {
+    f.get('/admin', async function () {
       return '/admin'
     })
     n()
   })
   fastifyInstance.listen('8765', function () {
     request({
-        uri: 'http://localhost:8765/user'
-      },
+      uri: 'http://localhost:8765/user'
+    },
       function (err, response, body) {
         if (err) throw err
         t.not(err, 'no request error')
         t.is(body, '/user', 'body should be  /user')
         request({
-            uri: 'http://localhost:8765/admin'
-          },
+          uri: 'http://localhost:8765/admin'
+        },
           function (err, response, body) {
+            if (err) throw err
             t.is(response.statusCode, 403, 'admin should return 403')
             fastifyInstance.close(t.end)
           })
