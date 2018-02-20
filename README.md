@@ -18,6 +18,7 @@ With *fastify-acl-auth* you can secure routes with roles, like **admin**, **supe
 - [API](#api)
   * [`options`](#options)
   * [`aclFactory([options])`](#aclfactoryoptions)
+- [Use with _fastify-auth_](#use-with-_fastify-auth_)
 
 <!-- tocstop -->
 
@@ -179,3 +180,17 @@ fastify.register(aclFactory([options]), [options])
 Nope, that's not a typo, `options` is there twice;  `aclFactory([options])` is setting the options of your _plugin instance_, whereas passing `options` during _registration_ is setting, or overriding, the _plugin instance_ options for _that registration_ of the plugin instance.  So you can create an instance of `fastify-acl-auth` and "carry it around with you" for later use.  Passing `options` _when you register_ the plugin will _override_ the `options` set when creating the plugin instance with the factory function.
 
 Lots of words, right?  This architecture really comes from the architecture (really talking about scoping here) of `fastify` itself, and should make sense with a [basic knowledge of scoping](https://www.fastify.io/docs/latest/Plugins/).  It's actually very logical when it sinks in.
+
+## Use with _fastify-auth_
+All of the actual logic that used in _fastify-acl-auth_ is contained in `lib/auth.js`, it exports a function with signature `function(actualRoles, allowedRoles[, options])` that simply returns a `boolean`, which can be used _anywhere_.
+
+```js
+const auth = require('fastify-acl-auth/lib/auth')
+auth(['user'], ['admin','user'], {any: true})
+// true
+auth(['foo'], ['bar','baz'], {any: true})
+// false
+auth(async function () {return ['user']}, ['admin'], {hierarchy: ['user', 'admin']})
+// true
+// et cetera
+```
