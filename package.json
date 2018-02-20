@@ -1,6 +1,6 @@
 {
   "name": "fastify-acl-auth",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ACL-like authorization for Fastify apps",
   "main": "index.js",
   "scripts": {
@@ -27,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/charlesread/fastify-acl-auth/issues"
   },
-  "keywords": ["fastify", "acl", "authorization"]
+  "keywords": [
+    "fastify",
+    "acl",
+    "authorization"
+  ]
 }
