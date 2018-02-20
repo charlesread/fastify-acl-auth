@@ -163,8 +163,8 @@ const aclFactory = require('fastify-acl-auth')
 
 | Property | Default | Type | Notes |
 | --- | --- | --- | --- |
-| `actualRoles` | `request.session.credentials.roles` |  `Array|string|function|async function` | Since `fastify-acl-auth` is all about comparing what roles a user _actually_ has to what a route `allows` then this property is pretty important.  This property can be an `Array` of roles (`string`s), a role itself, or an `[async] function` that returns an `Array` of roles. |
-| `allowedRoles` | `[]` | `Array|string|function|async function` | ^ that whole thing.  Except this property tells `fastify-acl-auth` which roles are allowed for a route or routes. ([scoping!!!](https://www.fastify.io/docs/latest/Plugins/)) |
+| `actualRoles` | `request.session.credentials.roles` |  `Array`, `string`, `[async] function` | Since `fastify-acl-auth` is all about comparing what roles a user _actually_ has to what a route `allows` then this property is pretty important.  This property can be an `Array` of roles (`string`s), a role itself, or an `[async] function` that returns an `Array` of roles. |
+| `allowedRoles` | `[]` | `Array`, `string`, `[async] function`  | ^ that whole thing.  Except this property tells `fastify-acl-auth` which roles are allowed for a route or routes. ([scoping!!!](https://www.fastify.io/docs/latest/Plugins/)) |
 | `any` | `true` | `boolean` | If `true` a `200` will be returned if `allowedRoles` contains _any_ of the roles in `actualRoles`, `403` otherwise. |
 | `all` | `false` | `boolean` | If `true` a `200` will be returned [iff](https://en.wikipedia.org/wiki/If_and_only_if) `allowedRoles` contains _ALL_ of the roles in `actualRoles`, `403` otherwise. |
 | `hierarchy` | `undefined` | `Array` | An `Array` that specifies the privilege hierarchy of roles in order of ascending privilege. For instance, suppose we have `hierarchy: ['user', 'admin', 'superuser]`, `allowedRoles : ['admin']`, and `actualRoles: ['superuser]` configured for a route.  A user with the `user` role will be able to access that route because the `admin` role is of higher privilege than the `user` role, as specified in the hierarchy. |
