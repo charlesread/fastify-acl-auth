@@ -190,7 +190,7 @@ auth(['user'], ['admin','user'], {any: true})
 // true
 auth(['foo'], ['bar','baz'], {any: true})
 // false
-auth(async function () {return ['user']}, ['admin'], {hierarchy: ['user', 'admin']})
+auth(async function () {return ['admin']}, ['user'], {hierarchy: ['user', 'admin']})
 // true
 // et cetera
 ```
