@@ -10,6 +10,7 @@
   "author": "Charles Read",
   "license": "MIT",
   "dependencies": {
+    "debug": "^3.1.0",
     "fastify-plugin": "^0.2.2",
     "fastify-url-data": "^1.1.1",
     "lodash": "^4.17.5",

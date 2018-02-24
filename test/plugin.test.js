@@ -49,6 +49,13 @@ test(function (t) {
     })
     n()
   })
+  fastifyInstance.register(function (f, o, n) {
+    f.register(plugin({allowedRoles: function(){return Symbol('foo')}}))
+    f.get('/symbol', async function () {
+      return '/symbol'
+    })
+    n()
+  })
   fastifyInstance.listen('8765', function () {
     request({
       uri: 'http://localhost:8765/user'
@@ -64,6 +71,14 @@ test(function (t) {
             if (err) throw err
             t.is(response.statusCode, 403, 'admin should return 403')
             fastifyInstance.close(t.end)
+            // request({
+            //     uri: 'http://localhost:8765/symbol'
+            //   },
+            //   function (err, response, body) {
+            //     if (err) throw err
+            //     t.is(response.statusCode, 500, 'bs symbol in allowedRoles should cause error')
+            //     fastifyInstance.close(t.end)
+            //   })
           })
       })
   })
