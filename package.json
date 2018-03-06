@@ -1,6 +1,6 @@
 {
   "name": "fastify-acl-auth",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "ACL-like authorization for Fastify apps",
   "main": "index.js",
   "scripts": {
