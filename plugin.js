@@ -60,7 +60,7 @@ const pluginFactory = function (options) {
   return fp(
     plugin,
     {
-      fastify: '>=1.0.0-rc.1'
+      fastify: '>=1.0.0'
     }
   )
 }

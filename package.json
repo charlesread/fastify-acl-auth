@@ -12,12 +12,12 @@
   "dependencies": {
     "debug": "^3.1.0",
     "fastify-plugin": "^0.2.2",
-    "fastify-url-data": "^1.1.1",
+    "fastify-url-data": "^2.0.0",
     "lodash": "^4.17.5",
     "type-detect": "^4.0.8"
   },
   "devDependencies": {
-    "fastify": "^1.0.0-rc.2",
+    "fastify": "^1.0.0",
     "request": "^2.83.0",
     "tap": "^11.1.1"
   },
