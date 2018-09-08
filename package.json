@@ -2,7 +2,7 @@
   "name": "fastify-acl-auth",
   "version": "1.2.0",
   "description": "ACL-like authorization for Fastify apps",
-  "main": "index.js",
+  "main": "plugin.js",
   "scripts": {
     "test": "tap 'test/**/*.test.js' --cov",
     "pretty": "npm test -- --cov --coverage-report=lcov"
