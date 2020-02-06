@@ -10,16 +10,16 @@
   "author": "Charles Read",
   "license": "MIT",
   "dependencies": {
-    "debug": "^3.1.0",
-    "fastify-plugin": "^1.2.0",
-    "fastify-url-data": "^2.0.1",
-    "lodash": "^4.17.10",
+    "debug": "^4.1.1",
+    "fastify-plugin": "^1.6.0",
+    "fastify-url-data": "^2.4.0",
+    "lodash": "^4.17.15",
     "type-detect": "^4.0.8"
   },
   "devDependencies": {
-    "fastify": "^1.11.2",
+    "fastify": "^2.11.0",
     "request": "^2.88.0",
-    "tap": "^12.0.1"
+    "tap": "^14.10.6"
   },
   "repository": {
     "type": "git",
