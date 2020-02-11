@@ -172,6 +172,7 @@ const aclFactory = require('fastify-acl-auth')
 | `any` | `true` | `boolean` | If `true` a `200` will be returned if `actualRoles` contains _any_ of the roles in `allowedRoles`, `403` otherwise. |
 | `all` | `false` | `boolean` | If `true` a `200` will be returned [iff](https://en.wikipedia.org/wiki/If_and_only_if) `actualRoles` contains _ALL_ of the roles in `allowedRoles`, `403` otherwise. |
 | `hierarchy` | `undefined` | `Array` | An `Array` that specifies the privilege hierarchy of roles in order of ascending privilege. For instance, suppose we have `hierarchy: ['user', 'admin', 'superuser]`, `allowedRoles : ['admin']`, and `actualRoles: ['superuser]` configured for a route.  A user with the `superuser` role will be able to access that route because the `superuser` role is of higher privilege than the `user` and `admin` roles, as specified in the hierarchy. |
+| `pathExempt` | `undefined` | `Array` | An `Array` that specifies the path patterns that should be exempt from enforcement; `['/login', '/callback**']` for example.  Uses the NPM module `url-pattern` internally for URL pattern matching. |
 
 ### `aclFactory([options])`
 This will create an instance of `fastify-acl-auth`.  It can be used with `fastify.register()` just like any other plugin.

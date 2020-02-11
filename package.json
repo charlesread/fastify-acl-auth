@@ -14,7 +14,8 @@
     "fastify-plugin": "^1.6.0",
     "fastify-url-data": "^2.4.0",
     "lodash": "^4.17.15",
-    "type-detect": "^4.0.8"
+    "type-detect": "^4.0.8",
+    "url-pattern": "^1.0.3"
   },
   "devDependencies": {
     "fastify": "^2.11.0",
